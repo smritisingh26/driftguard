@@ -14,8 +14,8 @@ langchain-community==0.3.9
 langchain-core==0.3.21
 
 # Vector search
-faiss-cpu==1.9.0.post1
-numpy==1.26.4
+faiss-cpu==1.14.2
+numpy==2.2.6
 
 # PDF generation (demo lease document)
 reportlab==4.1.0
