@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: driftguard-backend
+    runtime: python
+    rootDir: .
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: NVIDIA_API_KEY
+        sync: false          # set manually in Render dashboard
+      - key: NIM_BASE_URL
+        value: https://integrate.api.nvidia.com/v1
+      - key: NIM_LLM_MODEL
+        value: meta/llama-3.1-8b-instruct
+      - key: NIM_EMBED_MODEL
+        value: nvidia/nv-embedqa-e5-v5
+      - key: DRIFT_THRESHOLD
+        value: "0.60"
+      - key: TRAJECTORY_WINDOW
+        value: "3"
+      - key: FRONTEND_URL
+        sync: false          # set to your Vercel URL after deploy

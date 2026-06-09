@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(venv/bin/python -c \"import fastapi, pydantic, langchain, pypdf, faiss, numpy; print\\('All core deps OK'\\)\")",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(curl -s http://localhost:8000/openapi.json)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('\\\\n'.join\\(d['paths'].keys\\(\\)\\)\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s -X POST http://localhost:8000/run -H 'Content-Type: application/json' -d '{ *)",
+      "Bash(python3 -m json.tool)",
+      "Bash(venv/bin/python -c ' *)",
+      "Bash(venv/bin/python -m uvicorn backend.server:app --host 0.0.0.0 --port 8000)",
+      "Bash(curl -s http://localhost:8000/health)"
+    ]
+  }
+}
