@@ -24,9 +24,10 @@ from backend.agent.code_gen import run_code_agent
 
 app = FastAPI(title="DriftGuard API", version="1.0.0")
 
+_frontend_origin = FRONTEND_URL.rstrip("/")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL, "http://localhost:3000", "http://localhost:5173"],
+    allow_origins=[_frontend_origin, "http://localhost:3000", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
